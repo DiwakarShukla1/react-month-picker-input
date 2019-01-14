@@ -5,18 +5,7 @@ export const valuesToMask = (month: number, year: number, translate?: Translator
   const monthNum = month + 1;
   const monthVal = monthNum < 10 ? '0' + monthNum : monthNum;
   let shortYear = year.toString().slice(2);
-
-  switch(t.dateFormat()) {
-    case('YY/MM'):
-      return shortYear + '/' + monthVal;
-    case('MM/YYYY'):
-      return monthVal + '/' + year;
-    case('YYYY/MM'):
-      return year + '/' + monthVal;
-    case('MM/YY'):
-    default:
-      return monthVal + '/' + shortYear;
-  }
+  return `${monthVal},kl${year}`;
 };
 
 export const valuesFromMask = (maskedValue: string): [number, number] => {
